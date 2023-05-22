@@ -1,3 +1,5 @@
+
+
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -85,7 +87,7 @@ if (isset($_POST['item1'])) {
 
   print("client removed");
 
-
+//adding art
 } else if (isset($_POST['item3'])) {
 
   if (isset($_POST['item3']['hashArtID']) 
@@ -123,7 +125,7 @@ if (isset($_POST['item1'])) {
     print("Art Added");
   }
 
-
+//changing ownership of art
   else if (isset($_POST['item4'])) {
     if 
       (isset($_POST['item4']['hashArtID']) 
@@ -149,9 +151,9 @@ if (isset($_POST['item1'])) {
     print("ownership changed");
   }
 
-  else if (isset($_POST['item5'])) {
-    print("hello");
 
+// list of art owned by client
+  else if (isset($_POST['item5'])) {
     if (isset($_POST['item5']['clientID'])
     &&  $_POST['item5'] !== "")
     {
@@ -168,15 +170,16 @@ if (isset($_POST['item1'])) {
       trigger_error('couldnt acccess art', E_USER_ERROR);
     }  
     print "<pre>";
-    print("\n list of art");
+    print("\nlist of art");
     while($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
       print "\n";
       print "$row[artName]";
     }
     print "</pre>";
     mysqli_free_result($result);
-
   }
+
+
 
 
 
